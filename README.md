@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # AI News Aggregator
 
 An intelligent, full-stack news aggregation platform powered by AI. It provides an intuitive interface to browse news, read AI-generated summaries, interact with articles via a Q&A chat, and extract social media references from the content.

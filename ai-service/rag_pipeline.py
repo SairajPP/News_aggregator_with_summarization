@@ -7,12 +7,11 @@ from groq import Groq
 from newspaper import Article
 import requests
 
-load_dotenv()
+load_dotenv(override=True)
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 groq_client = Groq(api_key=GROQ_API_KEY)
 
-# Load embedding model once at startup
 print("Loading embedding model...")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 print("Embedding model loaded!")
@@ -37,10 +36,8 @@ def build_vector_store(articles, category="general"):
                 "url": article.get("url", ""),
                 "source": article.get("source", {}).get("name", ""),
             })
-
     if not docs:
         return None
-
     store = Chroma.from_texts(
         texts=docs,
         embedding=embeddings,
@@ -65,7 +62,7 @@ Only return the JSON, nothing else.
 {combined}"""
 
     response = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-20b",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=2000,
     )
@@ -101,7 +98,7 @@ Question: {question}
 Answer:"""
 
     response = groq_client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="openai/gpt-oss-20b",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=300,
     )
@@ -130,7 +127,7 @@ Article:
 
     try:
         response = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=200,
             temperature=0.3
@@ -207,7 +204,7 @@ Answer:"""
 
     try:
         response = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=400,
             temperature=0.3
@@ -215,7 +212,7 @@ Answer:"""
         return {"answer": response.choices[0].message.content.strip()}
     except Exception as e:
         print(f"Error generating answer: {str(e)}")
-        return {"answer": "Sorry, I am having trouble connecting to my AI brain right now."}
+        return {"answer": f"Sorry, AI error: {str(e)}"}
 
 def summarize_and_extract_socials(article):
     # Try to fetch full article content
@@ -264,7 +261,7 @@ Article Context:
 
     try:
         response = groq_client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-20b",
             messages=[{"role": "user", "content": prompt}],
             max_tokens=800,
             temperature=0.2

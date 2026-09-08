@@ -1,0 +1,101 @@
+ai-news-aggregator/
+├── 📄 .gitignore
+├── 📄 README.md
+├── 📄 gs.txt
+│
+├── 🐍 ai-service/                    # Python AI/RAG Service (Flask)
+│   ├── 📄 .env
+│   ├── 📄 app.py                     # Flask app entry point
+│   ├── 📄 rag_pipeline.py            # RAG pipeline logic
+│   ├── 📄 news_fetcher.py            # News fetching utility
+│   ├── 📄 LLM_RAW.txt                # Debug/raw LLM output
+│   ├── 📄 LLM_RAW2.txt
+│   ├── 📄 debug.txt
+│   ├── 📄 debug2.txt
+│   ├── 📄 debug4.txt
+│   └── 📁 venv/                      # Python virtual environment
+│
+├── 🟢 backend/                        # Node.js/Express Backend
+│   ├── 📄 .env
+│   ├── 📄 server.js                  # Express server entry point
+│   ├── 📄 package.json
+│   ├── 📄 package-lock.json
+│   ├── 📄 debug3.txt
+│   ├── 📄 debug5.json
+│   ├── 📁 config/
+│   │   └── 📄 db.js                  # MongoDB connection config
+│   ├── 📁 middleware/
+│   │   └── 📄 auth.js                # JWT auth middleware
+│   ├── 📁 models/
+│   │   └── 📄 User.js                # User model (Mongoose)
+│   ├── 📁 routes/
+│   │   ├── 📄 auth.js                # Auth routes (login/register)
+│   │   └── 📄 news.js                # News & summarization routes
+│   └── 📁 node_modules/
+│
+└── 🅰️ frontend/                       # Angular Frontend
+    ├── 📄 angular.json
+    ├── 📄 package.json
+    ├── 📄 package-lock.json
+    ├── 📄 tsconfig.json
+    ├── 📄 tsconfig.app.json
+    ├── 📄 tsconfig.spec.json
+    ├── 📄 .editorconfig
+    ├── 📄 .gitignore
+    ├── 📄 README.md
+    ├── 📄 build_output.txt
+    ├── 📄 build_output2.txt
+    ├── 📁 public/
+    ├── 📁 dist/                       # Production build output
+    └── 📁 src/
+        ├── 📄 index.html
+        ├── 📄 main.ts                # App bootstrap
+        ├── 📄 styles.css             # Global styles
+        ├── 📄 material-theme.scss    # Angular Material theme
+        └── 📁 app/
+            ├── 📄 app.ts             # Root component
+            ├── 📄 app.html           # Root template
+            ├── 📄 app.css
+            ├── 📄 app.config.ts      # App configuration
+            ├── 📄 app.routes.ts      # Route definitions
+            ├── 📄 app.spec.ts        # Root component tests
+            ├── 📁 services/
+            │   ├── 📄 auth.ts        # Auth service
+            │   ├── 📄 auth.spec.ts
+            │   ├── 📄 news.ts        # News service
+            │   └── 📄 news.spec.ts
+            └── 📁 components/
+                ├── 📁 article-chat-dialog/
+                │   └── 📄 article-chat-dialog.ts
+                ├── 📁 article-summary-dialog/
+                │   └── 📄 article-summary-dialog.ts
+                ├── 📁 chat/
+                │   ├── 📄 chat.ts
+                │   ├── 📄 chat.html
+                │   ├── 📄 chat.css
+                │   └── 📄 chat.spec.ts
+                ├── 📁 home/
+                │   ├── 📄 home.ts
+                │   ├── 📄 home.html
+                │   ├── 📄 home.css
+                │   └── 📄 home.spec.ts
+                ├── 📁 login/
+                │   ├── 📄 login.ts
+                │   ├── 📄 login.html
+                │   ├── 📄 login.css
+                │   └── 📄 login.spec.ts
+                ├── 📁 navbar/
+                │   ├── 📄 navbar.ts
+                │   ├── 📄 navbar.html
+                │   ├── 📄 navbar.css
+                │   └── 📄 navbar.spec.ts
+                ├── 📁 news-card/
+                │   ├── 📄 news-card.ts
+                │   ├── 📄 news-card.html
+                │   ├── 📄 news-card.css
+                │   └── 📄 news-card.spec.ts
+                └── 📁 register/
+                    ├── 📄 register.ts
+                    ├── 📄 register.html
+                    ├── 📄 register.css
+                    └── 📄 register.spec.ts

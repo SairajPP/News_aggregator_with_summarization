@@ -1,0 +1,11 @@
+flask
+flask-cors
+python-dotenv
+langchain-text-splitters
+langchain-community
+langchain-huggingface
+groq
+newspaper3k
+requests
+gunicorn
+chromadb

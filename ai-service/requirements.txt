@@ -10,3 +10,4 @@ requests
 gunicorn
 chromadb
 lxml_html_clean
+sentence-transformers

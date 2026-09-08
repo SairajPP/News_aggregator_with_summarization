@@ -9,3 +9,4 @@ newspaper3k
 requests
 gunicorn
 chromadb
+lxml_html_clean

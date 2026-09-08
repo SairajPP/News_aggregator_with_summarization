@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
 from groq import Groq
 from newspaper import Article
 import requests
@@ -12,9 +12,10 @@ load_dotenv(override=True)
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 groq_client = Groq(api_key=GROQ_API_KEY)
 
-print("Loading embedding model...")
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
-print("Embedding model loaded!")
+print("Connecting to cloud embedding model...")
+HF_TOKEN = os.getenv('HUGGINGFACEHUB_API_TOKEN')
+embeddings = HuggingFaceInferenceAPIEmbeddings(api_key=HF_TOKEN, model_name='sentence-transformers/all-MiniLM-L6-v2')
+print("Cloud embedding model connected!")
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 
@@ -278,3 +279,4 @@ Article Context:
     except Exception as e:
         print(f"Error generating summary & socials: {str(e)}")
         return {"summary": "Sorry, an error occurred while summarizing the article.", "socials": []}
+
